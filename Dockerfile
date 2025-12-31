@@ -7,14 +7,15 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 
 # Install dependencies using clean install (npm ci) for consistency
-RUN npm ci
+# RUN npm ci
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
 
 # Build the Vite application (outputs to /app/dist)
-# RUN npm run build
-RUN npm install
+RUN npm run build
+
 
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
