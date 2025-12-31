@@ -13,7 +13,8 @@ RUN npm ci
 COPY . .
 
 # Build the Vite application (outputs to /app/dist)
-RUN npm run build
+# RUN npm run build
+RUN npm install
 
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
